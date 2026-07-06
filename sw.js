@@ -1,4 +1,4 @@
-const CACHE_NAME = 'focus-arena-v2';
+const CACHE_NAME = 'focus-arena-v5';
 
 // The asset list to freeze into the device storage engine for offline access
 const ASSETS_TO_CACHE = [
@@ -11,7 +11,8 @@ const ASSETS_TO_CACHE = [
     // Include your specific audio stream assets below so they load offline:
     './audio/white-noise.wav',
     './audio/rain.wav',
-    './audio/coffee-pack-textures.wav'
+    './audio/coffee-pack-textures.wav',
+    './audio/first-alert.wav'
 ];
 
 // 1. INSTALLATION PHASE: Allocate cache pool and save asset files

@@ -1,129 +1,138 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Deep Work & Ritual Dashboard</title>
-  <!-- Google Fonts for a clean, sharp geometric tech aesthetic -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <!-- Inside the <head> tags of index.html -->
-<link rel="manifest" href="./manifest.json">
-<!-- Alternative: Use your actual app icon image file -->
-<link rel="icon" type="image/png" href="./images/focus-icon.jpeg" sizes="512x512">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Work & Ritual Dashboard</title>
+    <!-- Google Fonts for a clean, sharp geometric tech aesthetic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Inside the <head> tags of index.html -->
+    <link rel="manifest" href="./manifest.json">
+    <!-- Alternative: Use your actual app icon image file -->
+    <link rel="icon" type="image/png" href="./images/focus-icon.jpeg" sizes="512x512">
 </head>
+
 <body>
 
-  <!-- Background Hero Banner Graphic -->
-  <div class="banner"></div>
-<div></div>
-  <div class="container">
-    
-    <!-- --- APPLICATION HEADER --- -->
-    <header>
-      <div class="brand">
-        <h1>Focus Arena</h1>
-        <div class="streak-badge" aria-label="Current daily habit streak">
-          <span class="streak-icon">🔥</span>
-          <span id="streakCounter">0</span> Day Streak
-        </div>
-      </div>
-      <button class="theme-toggle" id="themeBtn" aria-label="Toggle light and dark interface layout">
-        <img class="icon-moon" src="images/icon-moon.svg" alt="Switch to dark mode" width="26" height="26">
-        <img class="icon-sun" src="images/icon-sun.svg" alt="Switch to light mode" width="26" height="26">
-      </button>
-    </header>
+    <!-- Background Hero Banner Graphic -->
+    <div class="banner"></div>
+    <div></div>
+    <div class="container">
 
-    <main>
-      <!-- --- ZONE 1: CORE MANIFESTATION FOCUS --- -->
-      <section class="dashboard-card manifestation-zone">
-        <div class="card-body">
-          <h2 class="section-title">Core Intent</h2>
-          <div class="focus-input-group">
-            <input type="text" id="manifestationInput" placeholder="What is your overriding long-term goal right now?" aria-label="Long-term focal objective">
-            <button id="saveManifestationBtn">Commit</button>
-          </div>
-          <blockquote class="affirmation-box">
-            <p id="affirmationText">"Focus precedes execution. Minimize the noise."</p>
-          </blockquote>
-        </div>
-      </section>
-
-      <!-- TWO-COLUMN WORKSPACE GRID FOR TABLETS AND DESKTOPS -->
-      <div class="workspace-grid">
-        
-        <!-- --- ZONE 2: DEEP WORK TIMER & AUDIO AMBIENCE --- -->
-        <section class="dashboard-card timer-zone">
-          <h2 class="section-title">Deep Work Arena</h2>
-          
-          <!-- Countdown Clock Layout -->
-          <div class="timer-display">
-            <span id="timerMinutes">25</span>:<span id="timerSeconds">00</span>
-          </div>
-          
-          <div class="timer-controls">
-            <button id="startPauseBtn" class="btn-primary">Start Focus</button>
-            <button id="resetTimerBtn" class="btn-secondary">Reset</button>
-          </div>
-
-          <!-- Ambient Mixer Slider Grid -->
-          <div class="ambient-mixer">
-            <h3>Soundboard</h3>
-            
-            <div class="mixer-channel">
-              <label for="volumeRain">🌧️ Rain</label>
-              <input type="range" id="volumeRain" min="0" max="1" step="0.01" value="0">
+        <!-- --- APPLICATION HEADER --- -->
+        <header>
+            <div class="brand">
+                <h1>Focus Arena</h1>
+                <div class="streak-badge" aria-label="Current daily habit streak">
+                    <span class="streak-icon">🔥</span>
+                    <span id="streakCounter">0</span> Day Streak
+                </div>
             </div>
+            <button class="theme-toggle" id="themeBtn" aria-label="Toggle light and dark interface layout">
+                <img class="icon-moon" src="images/icon-moon.svg" alt="Switch to dark mode" width="26" height="26">
+                <img class="icon-sun" src="images/icon-sun.svg" alt="Switch to light mode" width="26" height="26">
+            </button>
+        </header>
 
-            <div class="mixer-channel">
-              <label for="volumeCafe">☕ Cafe Hum</label>
-              <input type="range" id="volumeCafe" min="0" max="1" step="0.01" value="0">
+        <main>
+            <!-- --- ZONE 1: CORE MANIFESTATION FOCUS --- -->
+            <section class="dashboard-card manifestation-zone">
+                <div class="card-body">
+                    <h2 class="section-title">Core Intent</h2>
+                    <div class="focus-input-group">
+                        <input type="text" id="manifestationInput"
+                            placeholder="What is your overriding long-term goal right now?"
+                            aria-label="Long-term focal objective">
+                        <button id="saveManifestationBtn">Commit</button>
+                    </div>
+                    <blockquote class="affirmation-box">
+                        <p id="affirmationText">"Focus precedes execution. Minimize the noise."</p>
+                    </blockquote>
+                </div>
+            </section>
+
+            <!-- TWO-COLUMN WORKSPACE GRID FOR TABLETS AND DESKTOPS -->
+            <div class="workspace-grid">
+
+                <!-- --- ZONE 2: DEEP WORK TIMER & AUDIO AMBIENCE --- -->
+                <section class="dashboard-card timer-zone">
+                    <h2 class="section-title">Deep Work Arena</h2>
+
+                    <!-- Countdown Clock Layout -->
+                    <div class="timer-display">
+                        <span id="timerMinutes">25</span>:<span id="timerSeconds">00</span>
+                    </div>
+
+                    <div class="timer-controls">
+                        <button id="startPauseBtn" class="btn-primary">Start Focus</button>
+                        <button id="resetTimerBtn" class="btn-secondary">Reset</button>
+                    </div>
+
+                    <!-- Ambient Mixer Slider Grid -->
+                    <div class="ambient-mixer">
+                        <h3>Soundboard</h3>
+
+                        <div class="mixer-channel">
+                            <label for="volumeRain">🌧️ Rain</label>
+                            <input type="range" id="volumeRain" min="0" max="1" step="0.01" value="0">
+                        </div>
+
+                        <div class="mixer-channel">
+                            <label for="volumeCafe">☕ Cafe Hum</label>
+                            <input type="range" id="volumeCafe" min="0" max="1" step="0.01" value="0">
+                        </div>
+
+                        <div class="mixer-channel">
+                            <label for="volumeNoise">⚡ White Noise</label>
+                            <input type="range" id="volumeNoise" min="0" max="1" step="0.01" value="0">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- --- ZONE 3: DAILY RITUALS (HABITS) --- -->
+                <section class="dashboard-card rituals-zone">
+                    <h2 class="section-title">Daily Rituals</h2>
+
+                    <!-- Habit Creation Engine Bar -->
+                    <div class="habit-input-container">
+                        <input type="text" id="habitInput" placeholder="Add a new daily ritual..."
+                            aria-label="New routine habit tracker item">
+                        <button id="addHabitBtn" aria-label="Add habit item">+</button>
+                    </div>
+
+                    <!-- Active Habit Interactive Items Container -->
+                    <div class="habit-box" id="habitList" role="list">
+                        <!-- Items injected dynamically via JavaScript engine -->
+                    </div>
+
+                    <!-- Ritual Metrics Progress Footer -->
+                    <div class="ritual-footer">
+                        <span id="ritualProgressText">0% Completed</span>
+                        <div class="progress-track">
+                            <div id="progressBar" class="progress-bar-fill"></div>
+                        </div>
+                    </div>
+                </section>
+
             </div>
+        </main>
 
-            <div class="mixer-channel">
-              <label for="volumeNoise">⚡ White Noise</label>
-              <input type="range" id="volumeNoise" min="0" max="1" step="0.01" value="0">
-            </div>
-          </div>
-        </section>
+    </div>
 
-        <!-- --- ZONE 3: DAILY RITUALS (HABITS) --- -->
-        <section class="dashboard-card rituals-zone">
-          <h2 class="section-title">Daily Rituals</h2>
-          
-          <!-- Habit Creation Engine Bar -->
-          <div class="habit-input-container">
-            <input type="text" id="habitInput" placeholder="Add a new daily ritual..." aria-label="New routine habit tracker item">
-            <button id="addHabitBtn" aria-label="Add habit item">+</button>
-          </div>
+    <!-- --- NATIVE AUDIO ELEMENTS CORE CONFIGURATION --- -->
+    <audio id="audioRain" src="audio/rain.wav" loop prefetch="auto"></audio>
+    <audio id="audioCafe" src="audio/coffee-pack-textures.wav" loop prefetch="auto"></audio>
+    <audio id="audioNoise" src="audio/white-noise.wav" loop prefetch="auto"></audio>
+    <audio id="audioAlarm" src="audio/first-alert.wav" prefetch="auto"></audio>
 
-          <!-- Active Habit Interactive Items Container -->
-          <div class="habit-box" id="habitList" role="list">
-            <!-- Items injected dynamically via JavaScript engine -->
-          </div>
-
-          <!-- Ritual Metrics Progress Footer -->
-          <div class="ritual-footer">
-            <span id="ritualProgressText">0% Completed</span>
-            <div class="progress-track">
-              <div id="progressBar" class="progress-bar-fill"></div>
-            </div>
-          </div>
-        </section>
-
-      </div>
-    </main>
-
-  </div>
-
-  <!-- --- NATIVE AUDIO ELEMENTS CORE CONFIGURATION --- -->
-  <audio id="audioRain" src="audio/rain.wav" loop prefetch="auto"></audio>
-  <audio id="audioCafe" src="audio/coffee-pack-textures.wav" loop prefetch="auto"></audio>
-  <audio id="audioNoise" src="audio/white-noise.wav" loop prefetch="auto"></audio>
-
-  <!-- Application Engine Initialization Script -->
-  <script src="js/app.js"></script>
+    <!-- Application Engine Initialization Script -->
+    <script src="js/app.js"></script>
 </body>
+
 </html>
