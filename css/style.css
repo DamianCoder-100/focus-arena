@@ -1,0 +1,499 @@
+/* --- Light Theme Base Adjustments --- */
+:root[data-theme="light"] {
+    --bg-color: #f4f6f9;
+    /* REMOVED: broken bg-desktop-light.jpg URL */
+    background-image: linear-gradient(180deg, #eef1f6 0%, #f4f6f9 100%);
+    background-size: cover;
+    background-attachment: fixed;
+    
+    --card-bg: #ffffff;
+    --card-border: #e2e8f0;
+    --text-main: #1a202c;
+    --text-muted: #718096;
+    --accent-blue: #3182ce;
+}
+
+/* --- Dark Theme Base Adjustments --- */
+:root[data-theme="dark"] {
+    --bg-color: #0d1117;
+    /* REMOVED: broken bg-desktop-dark.jpg URL */
+    background-image: radial-gradient(circle at top, #161b22 0%, #0d1117 100%);
+    background-size: cover;
+    background-attachment: fixed;
+    
+    --card-bg: #161b22;
+    --card-border: #21262d;
+    --text-main: #c9d1d9;
+    --text-muted: #8b949e;
+    --accent-blue: #58a6ff;
+}
+
+/* --- Dynamic SVG Asset Icon Switching & Yellow Color Correction --- */
+:root[data-theme="dark"] .icon-moon { display: none; }
+:root[data-theme="dark"] .icon-sun { 
+    display: block; 
+    /* This filter combination forces any color asset into a vibrant gold/yellow */
+    filter: brightness(0) saturate(100%) invert(85%) sepia(48%) saturate(1210%) hue-rotate(352deg) brightness(105%) contrast(105%);
+}
+
+:root[data-theme="light"] .icon-sun { display: none; }
+:root[data-theme="light"] .icon-moon { 
+    display: block; 
+    /* Applies the identical matching bright yellow tone when running in light mode */
+    filter: brightness(0) saturate(100%) invert(85%) sepia(48%) saturate(1210%) hue-rotate(352deg) brightness(105%) contrast(105%);
+}
+
+/* --- Base Layout System Reset --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-size: 16px;
+    min-height: 100vh;
+    transition: background 0.3s ease, color 0.3s ease;
+    position: relative;
+    padding-bottom: 60px;
+}
+
+/* Deep focus indicators for fluid keyboard navigation controls */
+input:focus-visible, 
+button:focus-visible {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 3px;
+}
+
+/* --- Decorative Top Hero Banner --- */
+.banner {
+    background-image: var(--banner-url);
+    background-size: cover;
+    background-position: center;
+    height: 320px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: background-image 0.3s ease;
+}
+
+.container {
+    width: 100%;
+    max-width: 960px;
+    margin: 60px auto 0 auto;
+    padding: 0 24px;
+}
+
+/* --- Dashboard Header Structures --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+.brand h1 {
+    /* FIX: Changed from hardcoded white to adapt to light/dark themes */
+    color: var(--text-main); 
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.streak-badge {
+    display: inline-flex;
+    align-items: center;
+    
+    /* FIX: Swapped out transparent white background for theme variables */
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    color: var(--text-main);
+    
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.streak-icon {
+    margin-right: 6px;
+    font-size: 16px;
+}
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+}
+
+/* --- Global Modular Cards System --- */
+.dashboard-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.25);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+/* --- ZONE 1: CORE MANIFESTATION STYLING --- */
+.focus-input-group {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.focus-input-group input {
+    flex-grow: 1;
+    background-color: var(--bg-color);
+    border: 1px solid var(--card-border);
+    border-radius: 6px;
+    padding: 14px 18px;
+    color: var(--text-main);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.focus-input-group input:focus {
+    border-color: var(--accent-blue);
+}
+
+.focus-input-group button, 
+.timer-controls .btn-primary {
+    background-color: var(--accent-blue);
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 0 24px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.focus-input-group button:hover,
+.timer-controls .btn-primary:hover {
+    opacity: 0.9;
+}
+
+.affirmation-box {
+    border-left: 3px solid var(--accent-blue);
+    padding: 6px 0 6px 16px;
+    margin-top: 18px;
+}
+
+.affirmation-box p {
+    font-style: italic;
+    color: var(--text-main);
+    font-size: 17px;
+}
+
+/* --- ZONE 2: DEEP WORK TIMER DISPLAY --- */
+.timer-display {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 64px;
+    font-weight: 700;
+    text-align: center;
+    margin: 20px 0;
+    color: var(--text-main);
+    letter-spacing: 2px;
+}
+
+.timer-controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.timer-controls button {
+    padding: 14px 28px;
+    font-size: 16px;
+}
+
+.timer-controls .btn-secondary {
+    background: none;
+    border: 1px solid var(--card-border);
+    color: var(--text-muted);
+    border-radius: 6px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.timer-controls .btn-secondary:hover {
+    color: var(--text-main);
+    border-color: var(--text-main);
+}
+
+/* --- SOUNDBOARD SLIDERS (AMBIENT MIXER) --- */
+.ambient-mixer h3 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+    border-bottom: 1px solid var(--card-border);
+    padding-bottom: 6px;
+}
+
+.mixer-channel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
+
+.mixer-channel label {
+    font-size: 15px;
+    color: var(--text-main);
+    width: 120px;
+}
+
+.mixer-channel input[type="range"] {
+    flex-grow: 1;
+    appearance: none;
+    background: var(--card-border);
+    height: 6px;
+    border-radius: 3px;
+    outline: none;
+}
+
+.mixer-channel input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--accent-blue);
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+.mixer-channel input[type="range"]::-webkit-slider-thumb:active {
+    transform: scale(1.25);
+}
+
+/* --- ZONE 3: DAILY RITUALS ENGINE --- */
+.habit-input-container {
+    display: flex;
+    background-color: var(--bg-color);
+    border: 1px solid var(--card-border);
+    border-radius: 6px;
+    padding: 4px 6px 4px 16px;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.habit-input-container input {
+    flex-grow: 1;
+    background: none;
+    border: none;
+    color: var(--text-main);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 16px;
+    padding: 10px 0;
+    outline: none;
+}
+
+#addHabitBtn {
+    background-color: var(--card-border);
+    color: var(--text-main);
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+}
+
+#addHabitBtn:hover {
+    background-color: var(--accent-blue);
+    color: #ffffff;
+}
+
+/* Dynamic Habit Items list stack */
+.habit-box {
+    max-height: 240px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.habit-item {
+    display: flex;
+    align-items: center;
+    padding: 14px 12px;
+    border-bottom: 1px solid var(--card-border);
+    animation: foldIn 0.25s ease-out;
+}
+
+@keyframes foldIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.habit-circle {
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--card-border);
+    border-radius: 50%;
+    margin-right: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.habit-item:not(.completed):hover .habit-circle {
+    border-color: #c058f3;
+}
+
+.habit-item.completed .habit-circle {
+    background: linear-gradient(135deg, #5df, #c058f3);
+    border: none;
+}
+
+.habit-item .habit-check-img {
+    display: block;
+    width: 9px;
+    height: 7px;
+    opacity: 0;
+    transform: scale(0.6);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.habit-item.completed .habit-check-img {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.habit-text {
+    flex-grow: 1;
+    font-size: 16px;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.habit-item.completed .habit-text {
+    text-decoration: line-through;
+    color: var(--text-muted);
+}
+
+.habit-delete-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 14px;
+    opacity: 0;
+    padding: 4px;
+    transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.habit-item:hover .habit-delete-btn {
+    opacity: 1;
+}
+
+.habit-delete-btn:hover {
+    color: #ff4a4a;
+}
+
+/* --- METRICS PROGRESS FOOTER --- */
+.ritual-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 700;
+}
+
+.progress-track {
+    background-color: var(--bg-color);
+    height: 6px;
+    border-radius: 3px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--accent-blue), #c058f3);
+    border-radius: 3px;
+    transition: width 0.4s cubic-bezier(0.1, 0.8, 0.3, 1);
+}
+
+/* --- THE MASTER RESPONSIVE GRID CONFIGURATION --- */
+@media (min-width: 768px) {
+    .workspace-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        align-items: start;
+    }
+    
+    .dashboard-card {
+        margin-bottom: 0; /* Clear bottom margins once running side-by-side */
+    }
+}
+
+/* --- PREMIUM MINIMALIST SCROLLBAR ENGINE --- */
+.habit-box::-webkit-scrollbar {
+    width: 6px;
+}
+
+.habit-box::-webkit-scrollbar-track {
+    background: var(--bg-color);
+    border-radius: 10px;
+}
+
+.habit-box::-webkit-scrollbar-thumb {
+    background-color: var(--card-border);
+    border-radius: 10px;
+    transition: background-color 0.2s ease;
+}
+
+.habit-box::-webkit-scrollbar-thumb:hover {
+    background-color: var(--text-muted);
+}
+
+/* Fallback configuration rule for Firefox browser structures */
+.habit-box {
+    scrollbar-width: thin;
+    scrollbar-color: var(--card-border) var(--bg-color);
+}
